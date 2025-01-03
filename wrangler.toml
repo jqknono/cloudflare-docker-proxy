@@ -15,15 +15,15 @@ TARGET_UPSTREAM = "https://registry-1.docker.io"
 
 [env.production]
 name = "cloudflare-docker-proxy"
-# routes = [
-#   { pattern = "docker.techfetch.dev", custom_domain = true },
-#   { pattern = "quay.techfetch.dev", custom_domain = true },
-#   { pattern = "gcr.techfetch.dev", custom_domain = true },
-#   { pattern = "k8s-gcr.techfetch.dev", custom_domain = true },
-#   { pattern = "k8s.techfetch.dev", custom_domain = true },
-#   { pattern = "ghcr.techfetch.dev", custom_domain = true },
-#   { pattern = "cloudsmith.techfetch.dev", custom_domain = true },
-# ]
+routes = [
+  { pattern = "docker.techfetch.dev", custom_domain = true },
+  { pattern = "quay.techfetch.dev", custom_domain = true },
+  { pattern = "gcr.techfetch.dev", custom_domain = true },
+  { pattern = "k8s-gcr.techfetch.dev", custom_domain = true },
+  { pattern = "k8s.techfetch.dev", custom_domain = true },
+  { pattern = "ghcr.techfetch.dev", custom_domain = true },
+  { pattern = "cloudsmith.techfetch.dev", custom_domain = true },
+]
 
 [env.production.vars]
 MODE = "production"
