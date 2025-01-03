@@ -31,6 +31,11 @@ function routeByHosts(host) {
 }
 
 async function handleRequest(request) {
+  // drop if not from China or Singapore
+  if (request.cf.country !== 'CN' && request.cf.country !== 'SG') {
+    return new Response('Forbidden from ' + request.cf.country, { status: 403 });
+  }
+
   const url = new URL(request.url);
   const upstream = routeByHosts(url.hostname);
   if (upstream === "") {
@@ -144,7 +149,7 @@ async function fetchToken(wwwAuthenticate, scope, authorization) {
 }
 
 function responseUnauthorized(url) {
-  const headers = new(Headers);
+  const headers = new (Headers);
   if (MODE == "debug") {
     headers.set(
       "Www-Authenticate",
